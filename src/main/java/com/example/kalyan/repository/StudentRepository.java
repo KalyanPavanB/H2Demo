@@ -15,5 +15,5 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findAllById(long i);
 
     List<Student> findByCity(String city);
-//   List<Student> findAll("hyde");
+
 }
