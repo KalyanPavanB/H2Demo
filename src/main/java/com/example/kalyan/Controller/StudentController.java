@@ -19,30 +19,26 @@ public class StudentController {
     StudentRepository studentRepository;
 
     @GetMapping("/getStudents")
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return studentdao.getStudents();
     }
 
     //To find with Student ID
     @GetMapping("/getStudentId")
-    public Optional<Student> getStdid(@RequestParam long id){
-
+    public Optional<Student> getStdid(@RequestParam long id) {
         return studentdao.getById(id);
     }
 
+    @PostMapping("/saveStudent")
+    public String insertStudent(@RequestBody Student student) {
+        studentdao.saveStudent(student);
+        return "Student inserted succussfully";
+    }
+
     @GetMapping("/getCity")
-    public List<Student> getStdCity(@RequestParam String city){
+    public List<Student> getStdCity(@RequestParam String city) {
 
         return studentdao.getByName(city);
     }
 
-    //To add insert the Student details
-    @PostMapping("/saveStudent")
-    public String saveStudent(@RequestBody Student student){
-
-        studentRepository.save(student);
-
-        return "Student insterted Successfully";
-
-    }
 }

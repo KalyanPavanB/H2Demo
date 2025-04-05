@@ -12,18 +12,16 @@ import java.util.Optional;
 @Service
 public class StudentService {
 
-    Studentdao studentdao=new Studentdao();
+    Studentdao studentdao = new Studentdao();
 
-    public Optional<Student> getName(long id){
+    public Optional<Student> getName(long id) {
         return studentdao.getById(id);
 
     }
 
-    public List<Student> getByName(@RequestParam String city){
+    public List<Student> getByName(@RequestParam String city) {
         return studentdao.getByName(city);
     }
-
-
 
 
 }
